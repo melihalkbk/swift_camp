@@ -1,50 +1,50 @@
 # Swift Basics Checklist
 
-- [ ] **Variables and Constants**
-  - [ ] var
-  - [ ] let
-  - [ ] Type Declaration
-  - [ ] Type Inference
+- [X] **Variables and Constants**
+  - [X] var
+  - [X] let
+  - [X] Type Declaration
+  - [X] Type Inference
 
-- [ ] **Data Types**
-  - [ ] String
-  - [ ] Int
-  - [ ] Double
-  - [ ] Float
-  - [ ] Bool
-  - [ ] Array
-  - [ ] Dictionary
-  - [ ] Set
-  - [ ] Tuple
-  - [ ] Optionals
+- [X] **Data Types**
+  - [X] String
+  - [X] Int
+  - [X] Double
+  - [X] Float
+  - [X] Bool
+  - [X] Array
+  - [X] Dictionary
+  - [X] Set
+  - [X] Tuple
+  - [X] Optionals
   - [ ] Any and AnyObject
   - [ ] Typealias
 
-- [ ] **Operators**
-  - [ ] Assignment Operator (=)
-  - [ ] Arithmetic Operators (+, -, *, /, %)
-  - [ ] Comparison Operators (==, !=, >, <, >=, <=)
-  - [ ] Logical Operators (&&, ||, !)
-  - [ ] String Concatenation (+)
-  - [ ] Ternary Operator (?:)
+- [X] **Operators**
+  - [X] Assignment Operator (=)
+  - [X] Arithmetic Operators (+, -, *, /, %)
+  - [X] Comparison Operators (==, !=, >, <, >=, <=)
+  - [X] Logical Operators (&&, ||, !)
+  - [X] String Concatenation (+)
+  - [X] Ternary Operator (?:)
   - [ ] Nil-Coalescing Operator (??)
 
-- [ ] **Control Flow**
-  - [ ] if
-  - [ ] else
-  - [ ] else if
-  - [ ] guard
-  - [ ] switch
-  - [ ] for loop
-  - [ ] while loop
-  - [ ] repeat-while loop
+- [X] **Control Flow**
+  - [X] if
+  - [X] else
+  - [X] else if
+  - [X] guard
+  - [X] switch
+  - [X] for loop
+  - [X] while loop
+  - [X] repeat-while loop
 
-- [ ] **Functions**
-  - [ ] Function Definition
-  - [ ] Parameters
-  - [ ] Return Values
-  - [ ] Argument Labels
-  - [ ] Default Parameters
+- [X] **Functions**
+  - [X] Function Definition
+  - [X] Parameters
+  - [X] Return Values
+  - [X] Argument Labels
+  - [X] Default Parameters
   - [ ] Variadic Parameters
   - [ ] In-Out Parameters
 
