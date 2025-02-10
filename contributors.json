@@ -19,7 +19,29 @@
     "type": "User",
     "user_view_type": "public",
     "site_admin": false,
-    "contributions": 182
+    "contributions": 198
+  },
+  {
+    "login": "melihalkbk",
+    "id": 102410189,
+    "node_id": "U_kgDOBhqnzQ",
+    "avatar_url": "https://avatars.githubusercontent.com/u/102410189?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/melihalkbk",
+    "html_url": "https://github.com/melihalkbk",
+    "followers_url": "https://api.github.com/users/melihalkbk/followers",
+    "following_url": "https://api.github.com/users/melihalkbk/following{/other_user}",
+    "gists_url": "https://api.github.com/users/melihalkbk/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/melihalkbk/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/melihalkbk/subscriptions",
+    "organizations_url": "https://api.github.com/users/melihalkbk/orgs",
+    "repos_url": "https://api.github.com/users/melihalkbk/repos",
+    "events_url": "https://api.github.com/users/melihalkbk/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/melihalkbk/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false,
+    "contributions": 54
   },
   {
     "login": "turhanGoksu",
@@ -63,29 +85,7 @@
     "type": "User",
     "user_view_type": "public",
     "site_admin": false,
-    "contributions": 45
-  },
-  {
-    "login": "melihalkbk",
-    "id": 102410189,
-    "node_id": "U_kgDOBhqnzQ",
-    "avatar_url": "https://avatars.githubusercontent.com/u/102410189?v=4",
-    "gravatar_id": "",
-    "url": "https://api.github.com/users/melihalkbk",
-    "html_url": "https://github.com/melihalkbk",
-    "followers_url": "https://api.github.com/users/melihalkbk/followers",
-    "following_url": "https://api.github.com/users/melihalkbk/following{/other_user}",
-    "gists_url": "https://api.github.com/users/melihalkbk/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/melihalkbk/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/melihalkbk/subscriptions",
-    "organizations_url": "https://api.github.com/users/melihalkbk/orgs",
-    "repos_url": "https://api.github.com/users/melihalkbk/repos",
-    "events_url": "https://api.github.com/users/melihalkbk/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/melihalkbk/received_events",
-    "type": "User",
-    "user_view_type": "public",
-    "site_admin": false,
-    "contributions": 44
+    "contributions": 48
   },
   {
     "login": "yuceel",
@@ -107,7 +107,7 @@
     "type": "User",
     "user_view_type": "public",
     "site_admin": false,
-    "contributions": 43
+    "contributions": 46
   },
   {
     "login": "busragedikoglu",
@@ -129,7 +129,7 @@
     "type": "User",
     "user_view_type": "public",
     "site_admin": false,
-    "contributions": 35
+    "contributions": 42
   },
   {
     "login": "beyzanuravsar",
@@ -148,6 +148,28 @@
     "repos_url": "https://api.github.com/users/beyzanuravsar/repos",
     "events_url": "https://api.github.com/users/beyzanuravsar/events{/privacy}",
     "received_events_url": "https://api.github.com/users/beyzanuravsar/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false,
+    "contributions": 35
+  },
+  {
+    "login": "elifdodanli",
+    "id": 115662604,
+    "node_id": "U_kgDOBuTfDA",
+    "avatar_url": "https://avatars.githubusercontent.com/u/115662604?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/elifdodanli",
+    "html_url": "https://github.com/elifdodanli",
+    "followers_url": "https://api.github.com/users/elifdodanli/followers",
+    "following_url": "https://api.github.com/users/elifdodanli/following{/other_user}",
+    "gists_url": "https://api.github.com/users/elifdodanli/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/elifdodanli/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/elifdodanli/subscriptions",
+    "organizations_url": "https://api.github.com/users/elifdodanli/orgs",
+    "repos_url": "https://api.github.com/users/elifdodanli/repos",
+    "events_url": "https://api.github.com/users/elifdodanli/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/elifdodanli/received_events",
     "type": "User",
     "user_view_type": "public",
     "site_admin": false,
@@ -173,29 +195,7 @@
     "type": "User",
     "user_view_type": "public",
     "site_admin": false,
-    "contributions": 29
-  },
-  {
-    "login": "elifdodanli",
-    "id": 115662604,
-    "node_id": "U_kgDOBuTfDA",
-    "avatar_url": "https://avatars.githubusercontent.com/u/115662604?v=4",
-    "gravatar_id": "",
-    "url": "https://api.github.com/users/elifdodanli",
-    "html_url": "https://github.com/elifdodanli",
-    "followers_url": "https://api.github.com/users/elifdodanli/followers",
-    "following_url": "https://api.github.com/users/elifdodanli/following{/other_user}",
-    "gists_url": "https://api.github.com/users/elifdodanli/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/elifdodanli/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/elifdodanli/subscriptions",
-    "organizations_url": "https://api.github.com/users/elifdodanli/orgs",
-    "repos_url": "https://api.github.com/users/elifdodanli/repos",
-    "events_url": "https://api.github.com/users/elifdodanli/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/elifdodanli/received_events",
-    "type": "User",
-    "user_view_type": "public",
-    "site_admin": false,
-    "contributions": 21
+    "contributions": 30
   },
   {
     "login": "NurhayatYurtaslan",
@@ -217,7 +217,7 @@
     "type": "User",
     "user_view_type": "public",
     "site_admin": false,
-    "contributions": 18
+    "contributions": 23
   },
   {
     "login": "AylinManav",
