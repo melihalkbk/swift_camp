@@ -25,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppWindowHandler {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        
+        ThemeHelper.shared.applyTheme(ThemeHelper.shared.themeType)
+            
         // Facebook SDK initialization
         ApplicationDelegate.shared.application(
             application,
