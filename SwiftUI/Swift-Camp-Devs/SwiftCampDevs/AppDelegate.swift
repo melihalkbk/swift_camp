@@ -6,6 +6,7 @@ import GoogleSignIn
 import OneSignalFramework
 import Mixpanel
 import FacebookCore
+import AuthenticationServices
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, AppWindowHandler {
@@ -14,14 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppWindowHandler {
     private let mixPanelToken = EnvironmentHelper.shared.mixPanelToken
     
     // MARK: - Public properties -
-    
     var window: UIWindow?
     var initializers: [Initializable] = [] {
         didSet { initializers.forEach { $0.initialize() } }
     }
     
     // MARK: - Lifecycle -
-    
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -64,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppWindowHandler {
         return true
     }
     
-    // MARK: - URL Handling for Facebook and Google Sign-In
+    // MARK: - URL Handling for Facebook, Google, and Apple Sign-In
     func application(
         _ app: UIApplication,
         open url: URL,
@@ -86,6 +85,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppWindowHandler {
         }
         
         return false
+    }
+
+    // MARK: - Apple Sign-In Credential State Kontrolü
+    func checkAppleSignInState(for userID: String) {
+        Task {
+            do {
+                let credentialState = try await ASAuthorizationAppleIDProvider().credentialState(forUserID: userID)
+                switch credentialState {
+                case .authorized:
+                    print("Apple ID is authorized.")
+                case .revoked:
+                    print("Apple ID credentials have been revoked.")
+                case .notFound:
+                    print("No Apple ID credentials found.")
+                default:
+                    break
+                }
+            } catch {
+                print("Error while checking Apple ID credential state: \(error)")
+            }
+        }
     }
 
     private func setupGoogleSignIn() {

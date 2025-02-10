@@ -1,6 +1,8 @@
 import SwiftUI
 import FirebaseAuth
 import FacebookLogin
+import AuthenticationServices
+import CryptoKit
 
 struct LoginView: View {
     @ObservedObject var presenter: LoginPresenter
@@ -10,6 +12,7 @@ struct LoginView: View {
     @State private var rememberMe: Bool = false
     @State private var errorMessage: String?
     @State private var isLoading: Bool = false
+    @State private var currentNonce: String?
 
     var body: some View {
         NavigationView {
@@ -115,6 +118,17 @@ struct LoginView: View {
                     .cornerRadius(8)
                 }
 
+                // Sign in with Apple Button
+                SignInWithAppleButton(
+                    .signIn,
+                    onRequest: configureAppleRequest,
+                    onCompletion: handleAppleSignIn
+                )
+                .signInWithAppleButtonStyle(.black)
+                .frame(maxWidth: .infinity)
+                .frame(height: 45)
+                .cornerRadius(8)
+
                 Spacer()
 
                 HStack {
@@ -164,13 +178,11 @@ struct LoginView: View {
                 return
             }
 
-            
             guard let accessToken = AccessToken.current else {
                 self.errorMessage = "Failed to get access token."
                 return
             }
 
-            
             let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
             Auth.auth().signIn(with: credential) { authResult, error in
                 if let error = error {
@@ -180,6 +192,82 @@ struct LoginView: View {
                     presenter.handleSuccessfulLogin()
                 }
             }
+        }
+    }
+
+    private func randomNonceString(length: Int = 32) -> String {
+        precondition(length > 0)
+        let charset: [Character] = Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+        var result = ""
+        var remainingLength = length
+
+        while remainingLength > 0 {
+            let randoms: [UInt8] = (0..<16).map { _ in
+                var random: UInt8 = 0
+                let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+                if errorCode != errSecSuccess {
+                    fatalError("Unable to generate nonce.")
+                }
+                return random
+            }
+
+            randoms.forEach { random in
+                if remainingLength == 0 {
+                    return
+                }
+
+                if random < charset.count {
+                    result.append(charset[Int(random)])
+                    remainingLength -= 1
+                }
+            }
+        }
+
+        return result
+    }
+
+    
+    private func sha256(_ input: String) -> String {
+        let inputData = Data(input.utf8)
+        let hashedData = SHA256.hash(data: inputData)
+        return hashedData.compactMap { String(format: "%02x", $0) }.joined()
+    }
+
+    private func configureAppleRequest(_ request: ASAuthorizationAppleIDRequest) {
+        let nonce = randomNonceString()
+        currentNonce = nonce
+        request.nonce = sha256(nonce)
+        request.requestedScopes = [.fullName, .email]
+    }
+
+    private func handleAppleSignIn(_ result: Result<ASAuthorization, Error>) {
+        switch result {
+        case .success(let authorization):
+            if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+                guard let identityToken = appleIDCredential.identityToken,
+                      let tokenString = String(data: identityToken, encoding: .utf8),
+                      let nonce = currentNonce else {
+                    self.errorMessage = "Invalid Apple Sign-In request."
+                    return
+                }
+
+                let credential = OAuthProvider.credential(
+                    withProviderID: "apple.com",
+                    idToken: tokenString,
+                    rawNonce: nonce
+                )
+
+                Auth.auth().signIn(with: credential) { authResult, error in
+                    if let error = error {
+                        self.errorMessage = "Apple Sign-In failed: \(error.localizedDescription)"
+                    } else {
+                        print("Successfully signed in with Apple.")
+                        presenter.handleSuccessfulLogin()
+                    }
+                }
+            }
+        case .failure(let error):
+            self.errorMessage = "Apple Sign-In failed: \(error.localizedDescription)"
         }
     }
 }

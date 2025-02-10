@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		017D4CC52D553A360040A8CD /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 017D4CC42D553A0B0040A8CD /* Config.xcconfig */; };
 		3CCB621F2D4E2777006EBB09 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 3CCB621E2D4E2777006EBB09 /* SQLite */; };
 		41A22C112D42C8DC00A5F84D /* EnvironmentConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41A22C102D42C8CE00A5F84D /* EnvironmentConfig.plist */; };
 		41C902F22D56893C0064480F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 41C902F12D56893C0064480F /* Localizable.xcstrings */; };
@@ -79,7 +78,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		017D4CC42D553A0B0040A8CD /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		41A22C102D42C8CE00A5F84D /* EnvironmentConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = EnvironmentConfig.plist; sourceTree = "<group>"; };
 		41C902F12D56893C0064480F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		5557D6CF2D44E50100034CEA /* NavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarView.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 		7F313A05292BC7E90048C74C /* SwiftCampDevs */ = {
 			isa = PBXGroup;
 			children = (
-				017D4CC42D553A0B0040A8CD /* Config.xcconfig */,
 				89525E8E2D453D5D008BF4B6 /* Podfile */,
 				89C9FEC92D44E8F100CDF043 /* SwiftCampDevs.entitlements */,
 				5557D6D12D44E50100034CEA /* Views */,
@@ -420,8 +417,11 @@
 				7F313A13292BC7EA0048C74C /* LaunchScreen.storyboard in Resources */,
 				556B28B22D50429C00D20F1B /* GoogleService-Info.plist in Resources */,
 				89525E8F2D453D61008BF4B6 /* Podfile in Resources */,
+
+
 				017D4CC52D553A360040A8CD /* Config.xcconfig in Resources */,
 				41C902F22D56893C0064480F /* Localizable.xcstrings in Resources */,
+
 				7F313A10292BC7EA0048C74C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -633,6 +633,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = NO;
 				CODE_SIGN_ENTITLEMENTS = SwiftCampDevs/SwiftCampDevs.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -668,6 +669,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = NO;
 				CODE_SIGN_ENTITLEMENTS = SwiftCampDevs/SwiftCampDevs.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
