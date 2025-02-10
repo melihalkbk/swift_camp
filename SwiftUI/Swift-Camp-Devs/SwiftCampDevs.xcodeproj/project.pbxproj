@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3CCB621F2D4E2777006EBB09 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 3CCB621E2D4E2777006EBB09 /* SQLite */; };
 		41A22C112D42C8DC00A5F84D /* EnvironmentConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41A22C102D42C8CE00A5F84D /* EnvironmentConfig.plist */; };
+		41C902F22D56893C0064480F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 41C902F12D56893C0064480F /* Localizable.xcstrings */; };
 		5557D6D22D44E50100034CEA /* NavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557D6CF2D44E50100034CEA /* NavbarView.swift */; };
 		556B28532D5039F900D20F1B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 556B28522D5039F900D20F1B /* FirebaseAnalytics */; };
 		556B28552D5039F900D20F1B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 556B28542D5039F900D20F1B /* FirebaseCore */; };
@@ -78,6 +79,7 @@
 
 /* Begin PBXFileReference section */
 		41A22C102D42C8CE00A5F84D /* EnvironmentConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = EnvironmentConfig.plist; sourceTree = "<group>"; };
+		41C902F12D56893C0064480F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		5557D6CF2D44E50100034CEA /* NavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarView.swift; sourceTree = "<group>"; };
 		556B28B12D50429C00D20F1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7F313A03292BC7E90048C74C /* SwiftCampDevs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCampDevs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +217,7 @@
 				41A22C102D42C8CE00A5F84D /* EnvironmentConfig.plist */,
 				556B28B12D50429C00D20F1B /* GoogleService-Info.plist */,
 				7F313A14292BC7EA0048C74C /* Info.plist */,
+				41C902F12D56893C0064480F /* Localizable.xcstrings */,
 			);
 			path = SwiftCampDevs;
 			sourceTree = "<group>";
@@ -376,6 +379,13 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
+				"ur-IN",
+				"ur-PK",
+				"zh-Hans",
+				"ar-AE",
+				tr,
+				he,
 			);
 			mainGroup = 7F3139FA292BC7E90048C74C;
 			packageReferences = (
@@ -407,6 +417,11 @@
 				7F313A13292BC7EA0048C74C /* LaunchScreen.storyboard in Resources */,
 				556B28B22D50429C00D20F1B /* GoogleService-Info.plist in Resources */,
 				89525E8F2D453D61008BF4B6 /* Podfile in Resources */,
+
+
+				017D4CC52D553A360040A8CD /* Config.xcconfig in Resources */,
+				41C902F22D56893C0064480F /* Localizable.xcstrings in Resources */,
+
 				7F313A10292BC7EA0048C74C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
