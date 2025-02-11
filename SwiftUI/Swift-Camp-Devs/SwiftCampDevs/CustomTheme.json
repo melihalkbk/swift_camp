@@ -1,0 +1,21 @@
+{
+    "primaryColor": "#6246EA",
+    "secondaryColor": "#2CB67D",
+    "backgroundColor": "#D93A67",
+    "surfaceColor": "#242629",
+    "textColor": "#000000",
+    "subtitleColor": "#94A1B2",
+    "accentColor": "#7F5AF0",
+    "errorColor": "#FF6B6B",
+    "successColor": "#2CB67D",
+    "warningColor": "#FFB627",
+    "cardBackground": "#242629",
+    "navigationBarColor": "#16161A",
+    "tabBarColor": "#16161A",
+    "buttonBackground": "#FFFFFE",
+    "buttonText": "#FFFFFE",
+    "inputBackground": "#FFFFFE",
+    "placeholderText": "#94A1B2",
+    "dividerColor": "#72757E",
+    "shadowColor": "#00000040"
+}
