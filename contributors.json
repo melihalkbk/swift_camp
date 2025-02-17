@@ -19,7 +19,7 @@
     "type": "User",
     "user_view_type": "public",
     "site_admin": false,
-    "contributions": 198
+    "contributions": 205
   },
   {
     "login": "melihalkbk",
@@ -41,7 +41,7 @@
     "type": "User",
     "user_view_type": "public",
     "site_admin": false,
-    "contributions": 54
+    "contributions": 59
   },
   {
     "login": "turhanGoksu",
@@ -154,6 +154,28 @@
     "contributions": 35
   },
   {
+    "login": "alakkaya",
+    "id": 117384310,
+    "node_id": "U_kgDOBv8kdg",
+    "avatar_url": "https://avatars.githubusercontent.com/u/117384310?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/alakkaya",
+    "html_url": "https://github.com/alakkaya",
+    "followers_url": "https://api.github.com/users/alakkaya/followers",
+    "following_url": "https://api.github.com/users/alakkaya/following{/other_user}",
+    "gists_url": "https://api.github.com/users/alakkaya/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/alakkaya/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/alakkaya/subscriptions",
+    "organizations_url": "https://api.github.com/users/alakkaya/orgs",
+    "repos_url": "https://api.github.com/users/alakkaya/repos",
+    "events_url": "https://api.github.com/users/alakkaya/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/alakkaya/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false,
+    "contributions": 34
+  },
+  {
     "login": "elifdodanli",
     "id": 115662604,
     "node_id": "U_kgDOBuTfDA",
@@ -176,28 +198,6 @@
     "contributions": 31
   },
   {
-    "login": "alakkaya",
-    "id": 117384310,
-    "node_id": "U_kgDOBv8kdg",
-    "avatar_url": "https://avatars.githubusercontent.com/u/117384310?v=4",
-    "gravatar_id": "",
-    "url": "https://api.github.com/users/alakkaya",
-    "html_url": "https://github.com/alakkaya",
-    "followers_url": "https://api.github.com/users/alakkaya/followers",
-    "following_url": "https://api.github.com/users/alakkaya/following{/other_user}",
-    "gists_url": "https://api.github.com/users/alakkaya/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/alakkaya/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/alakkaya/subscriptions",
-    "organizations_url": "https://api.github.com/users/alakkaya/orgs",
-    "repos_url": "https://api.github.com/users/alakkaya/repos",
-    "events_url": "https://api.github.com/users/alakkaya/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/alakkaya/received_events",
-    "type": "User",
-    "user_view_type": "public",
-    "site_admin": false,
-    "contributions": 30
-  },
-  {
     "login": "NurhayatYurtaslan",
     "id": 80510115,
     "node_id": "MDQ6VXNlcjgwNTEwMTE1",
@@ -217,7 +217,7 @@
     "type": "User",
     "user_view_type": "public",
     "site_admin": false,
-    "contributions": 23
+    "contributions": 24
   },
   {
     "login": "AylinManav",
