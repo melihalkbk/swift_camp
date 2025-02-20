@@ -13,6 +13,7 @@ struct LoginView: View {
     @State private var errorMessage: String?
     @State private var isLoading: Bool = false
     @State private var currentNonce: String?
+    @State private var isPasswordVisible: Bool = false
 
     var body: some View {
         NavigationView {
@@ -23,23 +24,42 @@ struct LoginView: View {
 
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Email address or phone number")
-                    TextField("Your email", text: $email)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .keyboardType(.emailAddress)
-                        .autocapitalization(.none)
-                        .onAppear {
-                            email = ""
-                            password = ""
-                            loadRememberedEmail()
-                        }
+                    HStack {
+                        TextField("Your email", text: $email)
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                            .onAppear {
+                                email = ""
+                                password = ""
+                                loadRememberedEmail()
+                            }
+                            .onChange(of: email) { newEmail in
+                                checkRememberedPassword(for: newEmail)
+                            }
+                    }
+                    .padding(10)
+                    .background(RoundedRectangle(cornerRadius: 5).stroke(Color.gray.opacity(0.5), lineWidth: 1))
 
-                        .onChange(of: email) { newEmail in
-                            checkRememberedPassword(for: newEmail)
-                        }
                     Text("Password")
-                    SecureField("Password", text: $password)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    HStack {
+                        if isPasswordVisible {
+                            TextField("Password", text: $password)
+                        } else {
+                            SecureField("Password", text: $password)
+                        }
+                        
+                        Button(action: {
+                            isPasswordVisible.toggle()
+                        }) {
+                            Image(systemName: isPasswordVisible ? "eye.slash.fill" : "eye.fill")
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.trailing, 8)
+                    }
+                    .padding(10)
+                    .background(RoundedRectangle(cornerRadius: 5).stroke(Color.gray.opacity(0.5), lineWidth: 1))
                 }
+
                 HStack {
                     Text("Remember me")
                     Toggle("", isOn: $rememberMe)
