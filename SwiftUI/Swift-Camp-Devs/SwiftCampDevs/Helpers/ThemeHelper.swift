@@ -8,27 +8,21 @@ enum ThemeType: String {
 }
 
 struct CustomTheme: Codable {
-    let primaryColor: String
-    let secondaryColor: String
-    let backgroundColor: String
-    let surfaceColor: String
-    let textColor: String
-    let subtitleColor: String
-    let accentColor: String
-    let errorColor: String
+    let black: String
+    let white: String
+    let darkGray: String
+    let softGray: String
+    let lightGray: String
+    let powderBlue: String
+    let blue: String
     let successColor: String
     let warningColor: String
-    let cardBackground: String
-    let navigationBarColor: String
-    let tabBarColor: String
-    let buttonBackground: String
-    let buttonText: String
-    let inputBackground: String
-    let placeholderText: String
-    let dividerColor: String
-    let shadowColor: String
 }
-import SwiftUI
+
+enum ThemeColor: String {
+    case black, white, darkGray, softGray, lightGray, powderBlue, blue
+    case successColor, warningColor
+}
 
 class ThemeHelper {
     static let shared = ThemeHelper()
@@ -97,139 +91,113 @@ class ThemeHelper {
         }
         
         // Convert hex strings to UIColors
-        let backgroundColor = UIColor(hex: theme.backgroundColor)
-        let textColor = UIColor(hex: theme.textColor)
-        let primaryColor = UIColor(hex: theme.primaryColor)
-        let secondaryColor = UIColor(hex: theme.secondaryColor)
-        let subtitleColor = UIColor(hex: theme.subtitleColor)
-        let accentColor = UIColor(hex: theme.accentColor)
-        let errorColor = UIColor(hex: theme.errorColor)
+        let black = UIColor(hex: theme.black)
+        let white = UIColor(hex: theme.white)
+        let darkGray = UIColor(hex: theme.darkGray)
+        let softGray = UIColor(hex: theme.softGray)
+        let lightGray = UIColor(hex: theme.lightGray)
+        let powderBlue = UIColor(hex: theme.powderBlue)
+        let blue = UIColor(hex: theme.blue)
         let successColor = UIColor(hex: theme.successColor)
         let warningColor = UIColor(hex: theme.warningColor)
-        let cardBackground = UIColor(hex: theme.cardBackground)
-        let navigationBarColor = UIColor(hex: theme.navigationBarColor)
-        let tabBarColor = UIColor(hex: theme.tabBarColor)
-        let buttonBackground = UIColor(hex: theme.buttonBackground)
-        let buttonText = UIColor(hex: theme.buttonText)
-        let inputBackground = UIColor(hex: theme.inputBackground)
-        let placeholderText = UIColor(hex: theme.placeholderText)
-        let dividerColor = UIColor(hex: theme.dividerColor)
-        let shadowColor = UIColor(hex: theme.shadowColor)
         
-        // Force appearance update
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
             LoggerHelper.shared.error("No window scene found")
             return
         }
         
         windowScene.windows.forEach { window in
-            window.overrideUserInterfaceStyle = .unspecified // Allow custom colors to apply
-            window.backgroundColor = backgroundColor
-            
-            // Update all appearances at once
-            let navBarAppearance = UINavigationBarAppearance()
-            navBarAppearance.configureWithOpaqueBackground()
-            navBarAppearance.backgroundColor = navigationBarColor
-            navBarAppearance.titleTextAttributes = [
-                .foregroundColor: textColor
-            ]
-            navBarAppearance.largeTitleTextAttributes = [
-                .foregroundColor: textColor
-            ]
-            
-            UINavigationBar.appearance().standardAppearance = navBarAppearance
-            UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
-            UINavigationBar.appearance().compactAppearance = navBarAppearance
-            UINavigationBar.appearance().tintColor = accentColor
-            
-            let tabBarAppearance = UITabBarAppearance()
-            tabBarAppearance.configureWithOpaqueBackground()
-            tabBarAppearance.backgroundColor = tabBarColor
-            UITabBar.appearance().standardAppearance = tabBarAppearance
-            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
-            UITabBar.appearance().tintColor = accentColor
-            
-            // Update control appearances
-            UIButton.appearance().backgroundColor = buttonBackground
-            UIButton.appearance().tintColor = buttonText
-            
-            UITextField.appearance().backgroundColor = inputBackground
-            UITextField.appearance().textColor = textColor
-            UITextField.appearance().tintColor = accentColor
-            
-            // Global appearances
-            UIView.appearance().tintColor = accentColor
-            UILabel.appearance().textColor = textColor
-            UILabel.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = textColor
-            UILabel.appearance().backgroundColor = .clear
-            
-            // Status appearances
-            UIActivityIndicatorView.appearance().color = accentColor
-            UIProgressView.appearance().progressTintColor = accentColor
-            UISlider.appearance().thumbTintColor = accentColor
-            UISwitch.appearance().onTintColor = accentColor
-            UISwitch.appearance().thumbTintColor = buttonBackground
-            
-            // Divider and shadow colors
-            UIView.appearance().layer.borderColor = dividerColor.cgColor
-            UIView.appearance().layer.shadowColor = shadowColor.cgColor
-        }
+                window.overrideUserInterfaceStyle = .unspecified
+            window.backgroundColor = warningColor
+            window.rootViewController?.view.backgroundColor = warningColor
+
+                
+                // Navigation Bar
+                let navBarAppearance = UINavigationBarAppearance()
+                navBarAppearance.configureWithOpaqueBackground()
+                navBarAppearance.backgroundColor = white
+                navBarAppearance.titleTextAttributes = [.foregroundColor: black]
+                navBarAppearance.largeTitleTextAttributes = [.foregroundColor: black]
+                
+                UINavigationBar.appearance().standardAppearance = navBarAppearance
+                UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+                UINavigationBar.appearance().compactAppearance = navBarAppearance
+                UINavigationBar.appearance().tintColor = blue
+                
+                // Tab Bar
+                let tabBarAppearance = UITabBarAppearance()
+                tabBarAppearance.configureWithOpaqueBackground()
+                tabBarAppearance.backgroundColor = white
+                UITabBar.appearance().standardAppearance = tabBarAppearance
+                UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+                UITabBar.appearance().tintColor = blue
+                
+                // Controls
+                UIButton.appearance().backgroundColor = blue
+                UIButton.appearance().tintColor = white
+                UIButton.appearance().setTitleColor(warningColor, for: .disabled)
+                
+                UITextField.appearance().backgroundColor = softGray
+                UITextField.appearance().textColor = black
+                UITextField.appearance().tintColor = blue
+                
+                // Global appearances
+                UIView.appearance().tintColor = blue
+                UILabel.appearance().textColor = black
+                UILabel.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = black
+                UILabel.appearance().backgroundColor = .clear
+                
+                // Status appearances
+                UIActivityIndicatorView.appearance().color = blue
+                UIProgressView.appearance().progressTintColor = blue
+                UIProgressView.appearance().trackTintColor = powderBlue
+                UISlider.appearance().thumbTintColor = blue
+                UISwitch.appearance().onTintColor = successColor
+                UISwitch.appearance().thumbTintColor = white
+                
+                // Divider and shadow colors
+                UIView.appearance().layer.borderColor = lightGray.cgColor
+                UIView.appearance().layer.shadowColor = darkGray.cgColor
+            }
     }
     
-    func color(for key: String) -> Color {
-        switch themeType {
-        case .dark:
-            return Color(key)
-        case .light:
-            return Color(key)
-        case .custom:
-                if let customTheme = customTheme {
-                    switch key {
-                    case "primaryColor":
-                        return Color(UIColor(hex: customTheme.primaryColor))
-                    case "secondaryColor":
-                        return Color(UIColor(hex: customTheme.secondaryColor))
-                    case "backgroundColor":
-                        return Color(UIColor(hex: customTheme.backgroundColor))
-                    case "surfaceColor":
-                        return Color(UIColor(hex: customTheme.surfaceColor))
-                    case "textColor":
-                        return Color(UIColor(hex: customTheme.textColor))
-                    case "subtitleColor":
-                        return Color(UIColor(hex: customTheme.subtitleColor))
-                    case "accentColor":
-                        return Color(UIColor(hex: customTheme.accentColor))
-                    case "errorColor":
-                        return Color(UIColor(hex: customTheme.errorColor))
-                    case "successColor":
-                        return Color(UIColor(hex: customTheme.successColor))
-                    case "warningColor":
-                        return Color(UIColor(hex: customTheme.warningColor))
-                    case "cardBackground":
-                        return Color(UIColor(hex: customTheme.cardBackground))
-                    case "navigationBarColor":
-                        return Color(UIColor(hex: customTheme.navigationBarColor))
-                    case "tabBarColor":
-                        return Color(UIColor(hex: customTheme.tabBarColor))
-                    case "buttonBackground":
-                        return Color(UIColor(hex: customTheme.buttonBackground))
-                    case "buttonText":
-                        return Color(UIColor(hex: customTheme.buttonText))
-                    case "inputBackground":
-                        return Color(UIColor(hex: customTheme.inputBackground))
-                    case "placeholderText":
-                        return Color(UIColor(hex: customTheme.placeholderText))
-                    case "dividerColor":
-                        return Color(UIColor(hex: customTheme.dividerColor))
-                    case "shadowColor":
-                        return Color(UIColor(hex: customTheme.shadowColor))
-                    default:
-                        return Color(UIColor(hex: "#000000"))
-                    }
-                } else {
-                    return Color(UIColor(hex: "#000000"))
-                }
+    
+    
+    func color(for key: ThemeColor) -> Color {
+        if themeType != .custom {
+            /// Use AppColors for light and dark themes
+            let colorMap: [ThemeColor: Color] = [
+                .black: AppColors.black,
+                .white: AppColors.white,
+                .darkGray: AppColors.darkGray,
+                .softGray: AppColors.softGray,
+                .lightGray: AppColors.lightGray,
+                .powderBlue: AppColors.powderBlue,
+                .blue: AppColors.blue,
+                .successColor: AppColors.successColor,
+                .warningColor: AppColors.warningColor
+            ]
+            return colorMap[key] ?? Color.black
         }
+        
+        /// Use custom colors from CustomTheme.json
+        guard let customTheme = customTheme else {
+            return Color.black
+        }
+        
+        let colorMap: [ThemeColor: String] = [
+            .black: customTheme.black,
+            .white: customTheme.white,
+            .darkGray: customTheme.darkGray,
+            .softGray: customTheme.softGray,
+            .lightGray: customTheme.lightGray,
+            .powderBlue: customTheme.powderBlue,
+            .blue: customTheme.blue,
+            .successColor: customTheme.successColor,
+            .warningColor: customTheme.warningColor
+        ]
+        
+        return Color(UIColor(hex: colorMap[key] ?? "#000000"))
     }
 }
 
