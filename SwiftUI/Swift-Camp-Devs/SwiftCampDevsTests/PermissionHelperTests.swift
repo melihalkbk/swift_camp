@@ -12,8 +12,7 @@ import CoreLocation
 final class PermissionHelperTests: XCTestCase {
 
     let permissionHelper = PermissionHelper.shared
-    static var permissionResults: [String: String] = [:] 
-
+    static var permissionResults: [String: String] = [:]
     // 🔔 Notification Permission Test
     func testNotificationPermission() {
         let expectation = XCTestExpectation(description: "🔔 Notification permission check")
