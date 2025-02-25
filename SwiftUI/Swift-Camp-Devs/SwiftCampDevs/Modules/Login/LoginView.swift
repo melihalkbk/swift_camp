@@ -304,6 +304,5 @@ struct LoginView: View {
             self.password = savedPassword
         } else {
             self.password = ""
-        }
-    } 
+        }}
 }
