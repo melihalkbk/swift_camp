@@ -1,17 +1,12 @@
 import XCTest
 @testable import SwiftCampDevs
 
-// Mock UIApplication
 class MockUIApplication: UIApplicationProtocol {
     var canOpenURLMock: Bool = true
     var openURLCalled = false
     var completionSuccess = true
 
     func canOpenURL(_ url: URL) -> Bool {
-        //  Catch explicitly invalid URLs
-        if url.absoluteString == "invalid_url" || url.scheme == nil || !url.absoluteString.contains("://") {
-            return false
-        }
         return canOpenURLMock
     }
 
@@ -20,27 +15,33 @@ class MockUIApplication: UIApplicationProtocol {
         completion?(completionSuccess)
     }
 }
-
-//  Mock LoggerHelper
 class MockLoggerHelper: LoggerHelperProtocol {
-    var lastLoggedError: String?
+    var lastLoggedMessage: String?
+
+    func info(_ message: String) {
+        lastLoggedMessage = message
+    }
+
+    func debug(_ message: String) {
+        lastLoggedMessage = message
+    }
+
+    func warning(_ message: String) {
+        lastLoggedMessage = message
+    }
 
     func error(_ message: String) {
-        lastLoggedError = message
+        lastLoggedMessage = message
+    }
+
+    func verbose(_ message: String) {
+        lastLoggedMessage = message
     }
 }
 
 class DeepLinkHelperTests: XCTestCase {
-    func test_Open_ValidDeepLink_Success() {
-        let mockApp = MockUIApplication()
-        let mockLogger = MockLoggerHelper()
-        let url = "myapp://home"
-
-        DeepLinkHelper.open(url, application: mockApp, logger: mockLogger)
-
-        XCTAssertTrue(mockApp.openURLCalled, "✅ The deep link should have been opened.")
-    }
-    func test_Open_AppNotInstalled_ShouldLogError() {
+    
+    func test_Open_AppNotInstalled_ShouldLogWarning() {
         let mockApp = MockUIApplication()
         let mockLogger = MockLoggerHelper()
         mockApp.canOpenURLMock = false
@@ -48,8 +49,9 @@ class DeepLinkHelperTests: XCTestCase {
         let url = "myapp://profile"
         DeepLinkHelper.open(url, application: mockApp, logger: mockLogger)
 
-        XCTAssertEqual(mockLogger.lastLoggedError, "🚫 The required application is not installed on this device.", "🚨 App not installed error should have been logged.")
+        XCTAssertEqual(mockLogger.lastLoggedMessage, "🚫 App required to handle the deep link is not installed.", "⚠️ App not installed warning should have been logged.")
     }
+
     func test_Open_FailedToOpen_ShouldLogError() {
         let mockApp = MockUIApplication()
         let mockLogger = MockLoggerHelper()
@@ -58,6 +60,16 @@ class DeepLinkHelperTests: XCTestCase {
         let url = "myapp://settings"
         DeepLinkHelper.open(url, application: mockApp, logger: mockLogger)
 
-        XCTAssertEqual(mockLogger.lastLoggedError, "⚠️ Failed to open the application.", "❌ Application opening failure should have been logged.")
+        XCTAssertEqual(mockLogger.lastLoggedMessage, "⚠️ Failed to open deep link: \(url)", "❌ Application opening failure should have been logged.")
+    }
+
+    func test_Open_SuccessfulDeepLink_ShouldLogInfo() {
+        let mockApp = MockUIApplication()
+        let mockLogger = MockLoggerHelper()
+        let url = "myapp://dashboard"
+
+        DeepLinkHelper.open(url, application: mockApp, logger: mockLogger)
+
+        XCTAssertEqual(mockLogger.lastLoggedMessage, "✅ Successfully opened deep link: \(url)", "ℹ️ Deep link success message should have been logged.")
     }
 }
